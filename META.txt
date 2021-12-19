@@ -1,0 +1,8 @@
+/**
+ * @name DiscordPGPChat
+ * @author Justin Doan
+ * @description Enables the ability to send messages encrypted with PGP.
+ * @version 0.0.1
+ * @website https://www.benmarlatt.com
+ * @source https://github.com/JustinDoan/DiscordEncryptedChat
+ */

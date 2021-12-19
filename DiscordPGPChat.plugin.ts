@@ -1,35 +1,22 @@
-/**
- * * @name DiscordPGPChat
- * @version 0.0.1
- * @description Enables the ability to send messages encrypted with PGP
- * @website www.benmarlatt.com
- * @author Justin Doan
- */
-
+import * as openpgp from 'openpgp';
 
 module.exports = class DiscordPGPChat {
-    // Required Functions
-    getName() {
-        return "DiscordPGPChat";
-    }
-    getDescription() {
-        return "Enables the ability to send messages encrypted with PGP";
-    }
-    getVersion() {
-        return "0.0.1";
-    }
-    getAuthor() {
-        return "Benjamin Marlatt & Justin Doan";
-    }
-
-    load() {
+    async load() {
         BdApi.showConfirmationModal(
             "Testing",
             "This is a Test",
         )
+        console.log('load')
+        const { privateKey, publicKey, revocationCertificate } = await openpgp.generateKey({
+            type: 'ecc', // Type of the key, defaults to ECC
+            curve: 'curve25519', // ECC curve name, defaults to curve25519
+            userIDs: [{ name: 'Jon Smith', email: 'jon@example.com' }], // you can pass multiple user IDs
+            passphrase: 'super long and hard to guess secret', // protects the private key
+            format: 'armored' // output key format, defaults to 'armored' (other options: 'binary' or 'object')
+        });
+        console.log(privateKey, publicKey)
     } 
     start() {
-        console.log('start')
     } 
     stop() {
         console.log('stop')
