@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "ncc build .\\DiscordPGPChat.plugin.ts -o dist && copy .\\META.txt .\\dist\\DiscordPGPChat.plugin.js && type .\\dist\\index.js >> .\\dist\\DiscordPGPChat.plugin.js && del /f .\\dist\\index.js",
-    "build:linux": "ncc build ./DiscordPGPChat.plugin.ts -o dist  && cat ./META.txt ./dist/index.js > ./dist/DiscordPGPChat.plugin.js && rm ./dist/index.js"
+    "build-windows": "ncc build .\\DiscordPGPChat.plugin.ts -o dist && copy .\\META.txt .\\dist\\DiscordPGPChat.plugin.js && type .\\dist\\index.js >> .\\dist\\DiscordPGPChat.plugin.js && del /f .\\dist\\index.js",
+    "build-linux": "ncc build ./DiscordPGPChat.plugin.ts -o dist  && cat ./META.txt ./dist/index.js > ./dist/DiscordPGPChat.plugin.js && rm ./dist/index.js"
   },
   "dependencies": {
     "@types/bandagedbd__bdapi": "^0.3.2",
